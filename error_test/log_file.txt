@@ -1,0 +1,14 @@
+Warnings -
+Line 1: Label not in use
+
+Errors -
+Line 2: label line_code exists already
+Line 3: No such label line_code found
+Line 4: Invalid operand
+Line 5: Too few operands
+Line 6: Too many operands
+Line 7: Too many operands
+Line 8: Invalid Label
+Line 9: No such label line_code found
+Line 10: Too few operands
+

@@ -1,0 +1,63 @@
+bs:
+ldc num2  ; loading right most index
+ldnl 0  
+ldc start  ; loading left most index
+ldnl 0
+sub        ; checking if right<left then number is not present in array
+brlz notfound
+ldc num2 ;  again loading right most index
+ldnl 0
+ldc start ; again loading left most index A=left  B=right
+ldnl 0
+add    ;A=A+B
+ldc 1    ;B=A  A=1  
+shr    ;A=B/2
+ldc array   ;loading value present at middle index
+add
+ldnl 0
+ldc target
+ldnl 0 ; loading target value
+sub
+brz done ; checking if target==a[mid] then go to done
+brlz leftupdate   ;if target-a[mid]>0 then left=mid+1
+ldc num2 ; here if target-a[mid]<0 then right=mid-1
+ldnl 0
+ldc start
+ldnl 0
+add
+ldc 1
+shr
+adc -1
+ldc num2
+stnl 0
+br bs
+leftupdate: ldc num2 ; updating left most index value  
+ldnl 0
+ldc start ; loading address of start
+ldnl 0
+add
+ldc 1
+shr
+ldc 1
+add
+ldc start
+stnl 0
+br bs
+  
+
+done: ldc target
+      ldnl 0
+      ldc result
+      stnl 0
+        HALT
+notfound: HALT
+array:  data -23
+	data -5
+	data 10
+	data 20
+	data 200
+	data 205
+num2: data 5 ;size of array-1
+start: data 0
+target: data 20
+result: data 10000 

@@ -1,0 +1,40 @@
+; program to find mean of first n natural numbers
+            stl 0       ; store return address (from A) into stack
+            adj -1      ; adjust stack pointer
+    loop:   ldc num
+            ldnl 0      ; load num into A
+            ldc sum
+            ldnl 0      ; load sum into A, B = num
+            add         ; A = B + A
+            ldc sum
+            stnl 0      ; store new value of sum
+            ldc num
+            ldnl 0      ; load num into A again
+            adc -1      ; decrement A
+            brz mean   ; if A == 0, stop sum calculation and go to mean
+            ldc num
+            stnl 0      ; otherwise update num value
+            br loop     ; repeat calculation
+   mean:     ldc sum
+            ldnl 0      ; load sum into A
+            ldc num2
+            ldnl 0      ; load num2 into A, B = sum
+            sub         ; A =B-A
+            brlz done
+            ldc sum
+            stnl 0      ; store new value of sum
+            ldc meanl
+            ldnl 0      ; load meanl into A again
+            adc +1      ;increment A
+         ldc meanl
+            stnl 0       ;store new value of meanl
+         br mean
+            
+      done: adj 1       ; if done, adjust stack pointer
+            HALT 
+
+
+num: data 11       ; number upto which sum is calculated
+sum: data 0         ; sum is stored here
+meanl: data 0        ;mean is stored here
+num2:data 11

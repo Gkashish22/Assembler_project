@@ -1,0 +1,45 @@
+mini:
+ldc array ; loading address of array
+ldc num2  ;loading adrres of num2
+ldnl 0    ;A=num2  B=array_address
+brlz done ;if num2<0 then our array is traversed fully and we are done
+add       ;adding A=A+B
+ldnl 0    ;A=memory[A+0]
+stl 0     ;storing in stack
+ldc mexi  ; loading mexi address
+ldnl 0    ;A=mexi
+ldl 0     
+sub    ; A=B-A  checking if mexi-array[index]<0  then updating mex
+brlz update
+ldc num2  ; decreasing value of num2
+ldnl 0
+adc -1
+ldc num2
+stnl 0
+br mini  ; going to mini loop again
+update:ldc array
+ldc num2
+ldnl 0
+add   ; loading array value
+ldnl 0
+ldc mexi
+stnl 0   ; updating mexi
+ldc num2   ;decreasing num2 by 1
+ldnl 0
+adc -1
+ldc num2
+stnl 0
+br mini  ; going to mini loop again 
+done:HALT
+array: data    90
+	data    10
+      	data    -20
+	data   20
+        data   100
+	data    3
+	data    -24
+	data    18
+	data    12
+	data    5
+num2: data 9
+mexi: data 0

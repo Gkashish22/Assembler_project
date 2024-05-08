@@ -1,0 +1,18 @@
+ldc num2
+ldnl 0    ;A=num2
+ldc temp
+stnl 0     ;temp=num2
+ldc num1
+ldnl 0     ;A=num1  B=num2
+ldc num2
+stnl 0     ;num2=num1
+ldc temp
+ldnl 0     
+ldc num1
+stnl 0     ;num1=temp
+br done
+
+done: HALT
+num2: data 5
+num1: data 10
+temp: data 0   ;for storing temporary value of num2
