@@ -4,14 +4,6 @@
 
     TITLE - ASSEMBLER
 
-    AUTHOR:
-    Name - Kashish Garg
-    Roll No - 2201CS36
-    Email-ID - 2201cs36_kashish@iitp.ac.in
-
-    Declaration of Authorship
-    This asm.cpp is part of the miniproject of CS210 at the department of Computer Science and Engg, IIT Patna . 
-
     REQUIREMENTS - 
 
     TO Run This File You Need To Make 1 File named as "input.txt" which contains assembly code
